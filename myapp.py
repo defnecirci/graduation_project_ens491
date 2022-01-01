@@ -1,5 +1,5 @@
 """
-# My first app
+# My first application
 Here's our first attempt at using data to create a table: sdfsdgfsdfg
 """
 
