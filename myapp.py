@@ -22,16 +22,24 @@ gschist = pd.DataFrame({
 })
 st.write(gschist)
 
-idca = gschist.index[gschist["Element"] == "Calcium"].tolist()[0]
 
-idsi = gschist.index[gschist["Element"] == "Silicon"].tolist()[0]
+first_atom = st.selectbox('Select first atom type:',("Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Iron","Titanium"))
+st.write('You selected:',first_atom)
+second_atom = st.selectbox('Select second atom type:',("Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Iron","Titanium"))
+st.write('You selected:', second_atom)
+idfirst = gschist.index[gschist["Element"] == first_atom].tolist()[0]
 
-caoversi = (gschist.iloc[idca]['mass (%)']) / (gschist.iloc[idsi]['mass (%)'] )
+idsecond = gschist.index[gschist["Element"] == second_atom].tolist()[0]
 
-st.write("Ca to Si ratio is: {:.2f}".format(caoversi))
-idal = gschist.index[gschist["Element"] == "Aluminum"].tolist()[0]
-aloversi = (gschist.iloc[idal]['mass (%)']) / (gschist.iloc[idsi]['mass (%)'] )
-st.write("Al to Si ratio is: {:.2f}".format(aloversi))
+#caoversi = (gschist.iloc[idca]['mass (%)']) / (gschist.iloc[idsi]['mass (%)'] )
+
+
+firstoversecond = (gschist.iloc[idfirst]['mass (%)']) / (gschist.iloc[idsecond]['mass (%)'] )
+st.write("{} to {} ratio is: {:.2f}".format(first_atom, second_atom, firstoversecond))
+st.write("HERE!!!!")
+#idal = gschist.index[gschist["Element"] == "Aluminum"].tolist()[0]
+#aloversi = (gschist.iloc[idal]['mass (%)']) / (gschist.iloc[idsi]['mass (%)'] )
+#st.write("Al to Si ratio is: {:.2f}".format(aloversi))
 #st.write(caoversi)
 
 st.image('./EDX_G_schist.png')
