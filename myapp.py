@@ -36,7 +36,7 @@ idsecond = gschist.index[gschist["Element"] == second_atom].tolist()[0]
 
 firstoversecond = (gschist.iloc[idfirst]['mass (%)']) / (gschist.iloc[idsecond]['mass (%)'] )
 st.write("{} to {} ratio is: {:.2f}".format(first_atom, second_atom, firstoversecond))
-st.write("HERE!!!!")
+
 #idal = gschist.index[gschist["Element"] == "Aluminum"].tolist()[0]
 #aloversi = (gschist.iloc[idal]['mass (%)']) / (gschist.iloc[idsi]['mass (%)'] )
 #st.write("Al to Si ratio is: {:.2f}".format(aloversi))
