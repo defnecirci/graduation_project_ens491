@@ -8,7 +8,9 @@ import numpy as np
 import streamlit as st
 #import matplotlib.pyplot as plt
 import sqlite3
-
+from PIL import Image
+img=Image.open('logo.png')
+st.set_page_config(page_title='Efficient SCM Processing',page_icon=img)
 
 st.title("Machine Learning for more efficient SCM processing")
 st.sidebar.subheader("Upload File")
