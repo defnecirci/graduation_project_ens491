@@ -11,7 +11,13 @@ import sqlite3
 from PIL import Image
 img=Image.open('logo.png')
 st.set_page_config(page_title='Efficient SCM Processing',page_icon=img)
-
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        footer {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.title("Machine Learning for more efficient SCM processing")
 st.sidebar.subheader("Upload File")
 uploaded_file= st.sidebar.file_uploader(label="Upload your CSV or Excel file.",type=['csv','xlsx'])
