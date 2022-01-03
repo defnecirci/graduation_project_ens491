@@ -1,11 +1,16 @@
 """
 # My first app
-Here's our first attempt at using data to create a table: sdfsdgfsdfg
+Here's our first attempt at using data to create a table:
 """
 
 import pandas as pd
 import numpy as np
 import streamlit as st
+import sqlite3
+conn = sqlite3.connect("data.db", check_same_thread = False)
+cur = conn.cursor()
+
+
 st.write("G Schist")
 st.write("XRD Data")
 
