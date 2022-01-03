@@ -28,6 +28,19 @@ or all with
 $ pip install -r requirements.txt
 ```
 
+## Usage
+
+You can run the python script with streamlit run:
+```sh
+$ streamlit run myapp.py
+```
+OR
+
+You can pass a URL to streamlit run:
+```sh
+$ streamlit run https://raw.githubusercontent.com/defnecirci/graduation_project_ens491/master/myapp.py
+```
+
 ## Contributing
 Pull requests are welcome.
 
