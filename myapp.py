@@ -6,8 +6,9 @@ Here's our first attempt at using data to create a table:
 import pandas as pd
 import numpy as np
 import streamlit as st
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import sqlite3
+
 
 st.title("Machine Learning for more efficient SCM processing")
 st.sidebar.subheader("Upload File")
@@ -33,6 +34,8 @@ if uploaded_file is not None:
          print(e)
          dataframe = pd.read_excel(uploaded_file)
      st.write(dataframe)
+
+
 
 st.write("G Schist")
 st.write("XRD Data")
