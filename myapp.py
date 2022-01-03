@@ -6,10 +6,33 @@ Here's our first attempt at using data to create a table:
 import pandas as pd
 import numpy as np
 import streamlit as st
+import matplotlib.pyplot as plt
 import sqlite3
-conn = sqlite3.connect("data.db", check_same_thread = False)
-cur = conn.cursor()
 
+st.title("Machine Learning for more efficient SCM processing")
+st.sidebar.subheader("Upload File")
+uploaded_file= st.sidebar.file_uploader(label="Upload your CSV or Excel file.",type=['csv','xlsx'])
+conn = sqlite3.connect("data.db", check_same_thread = False)
+cursor = conn.cursor()
+#sql='''CREATE TABLE XRDDATA(
+#Chemical_Phase CHAR(35), Weight_Percent FLOAT, Crystal_Structure CHAR(35))'''
+#cursor.execute(sql)
+#print("Table created succesfully...")
+
+#cursor.execute('''INSERT INTO XRDDATA(Chemical_Phase, Weight_Percent, Crystal_Structure) VALUES("Quartz",22.5,"Hexagonal")''')
+#cursor.execute('''INSERT INTO XRDDATA(Chemical_Phase, Weight_Percent, Crystal_Structure) VALUES("Calcite",0.9,"Rhombo")''')
+#st.title("Display Graph")
+conn.commit()
+conn.close()
+
+if uploaded_file is not None:
+     # Can be used wherever a "file-like" object is accepted:
+     try:
+         dataframe = pd.read_csv(uploaded_file)
+     except Exception as e:
+         print(e)
+         dataframe = pd.read_excel(uploaded_file)
+     st.write(dataframe)
 
 st.write("G Schist")
 st.write("XRD Data")
