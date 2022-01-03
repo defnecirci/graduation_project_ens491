@@ -29,6 +29,10 @@ $ pip install -r requirements.txt
 ```
 
 ## Usage
+Change the current working directory to the location where you want the cloned directory and clone the repository.
+```sh
+$  git clone https://github.com/defnecirci/graduation_project_ens491.git
+```
 
 You can run the python script with streamlit run:
 ```sh
