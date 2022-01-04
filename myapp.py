@@ -83,8 +83,6 @@ st.write("{} to {} ratio is: {:.2f}".format(first_atom, second_atom, firstoverse
 
 st.image('./EDX_G_schist.png')
 
-import streamlit as st
-
 st.write("C Schist")
 st.write("XRD Data")
 st.write(pd.DataFrame({
@@ -110,7 +108,6 @@ idal = cschist.index[gschist["Element"] == "Aluminum"].tolist()[0]
 aloversi = (cschist.iloc[idal]['mass (%)']) / (cschist.iloc[idsi]['mass (%)'] )
 st.write("Al to Si ratio is: {:.2f}".format(aloversi))
 
-import streamlit as st
 
 st.write("P Schist")
 st.write("XRD Data")
@@ -137,7 +134,6 @@ idal = pschist.index[pschist["Element"] == "Aluminum"].tolist()[0]
 aloversi = (pschist.iloc[idal]['mass (%)']) / (pschist.iloc[idsi]['mass (%)'] )
 st.write("Al to Si ratio is: {:.2f}".format(aloversi))
 
-import streamlit as st
 
 st.write("B Schist")
 st.write("XRD Data")
@@ -165,7 +161,6 @@ idal = bschist.index[bschist["Element"] == "Aluminum"].tolist()[0]
 aloversi = (bschist.iloc[idal]['mass (%)']) / (bschist.iloc[idsi]['mass (%)'] )
 st.write("Al to Si ratio is: {:.2f}".format(aloversi))
 
-import streamlit as st
 
 st.write("L Schist")
 st.write("XRD Data")
