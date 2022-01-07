@@ -65,6 +65,33 @@ if uploaded_file is not None:
 
 
 
+option = st.multiselect(
+    'Which atoms would you like to see in the EDX image?',
+    ['Si', 'Al', 'S','Mg', 'Ch', 'Ca','K', 'Na',])
+
+if 'Si'and 'Al' and 'S'and'Mg'and'Ch'and'Ca'and 'K' and 'Na' in option:
+    st.image('./EDX/sample37 29.jpg',width=400)
+elif 'Si' and 'Al' in option:
+    st.image('./EDX/sample37 27.jpg',width=400)
+elif 'Si' in option:
+    st.image('./EDX/Si-Kα.jpg',width=400)
+elif 'Al' in option:
+    st.image('./EDX/Al-K.jpg',width=400)
+elif 'S' in option:
+    st.image('./EDX/S-Kα.jpg',width=400)
+elif 'Mg' in option:
+    st.image('./EDX/Mg-K.jpg',width=400)
+elif 'Ch' in option:
+    st.image('./EDX/Ch 0.jpg',width=400)
+elif 'Ca' in option:
+    st.image('./EDX/Ca-Kα.jpg',width=400)
+elif 'K' in option:
+    st.image('./EDX/K-Kα.jpg',width=400)
+elif 'Na' in option:
+    st.image('./EDX/Na-K.jpg',width=400)
+
+
+
 
 st.write("G Schist")
 st.write("XRD Data")
