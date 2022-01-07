@@ -4,8 +4,11 @@ Here's our first attempt at using data to create a table:
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
+import plotly.express as px
+
 #import matplotlib.pyplot as plt
 import sqlite3
 from PIL import Image
@@ -23,6 +26,8 @@ st.sidebar.subheader("Upload File")
 uploaded_file= st.sidebar.file_uploader(label="Upload your CSV or Excel file.",type=['csv','xlsx'])
 conn = sqlite3.connect("data.db", check_same_thread = False)
 cursor = conn.cursor()
+
+
 #sql='''CREATE TABLE XRDDATA(
 #Chemical_Phase CHAR(35), Weight_Percent FLOAT, Crystal_Structure CHAR(35))'''
 #cursor.execute(sql)
@@ -41,7 +46,24 @@ if uploaded_file is not None:
      except Exception as e:
          print(e)
          dataframe = pd.read_excel(uploaded_file)
-     st.write(dataframe)
+     if st.checkbox("Show data"):
+         st.subheader("Uploaded Data")
+         st.write(dataframe)
+     #st.line_chart(dataframe)
+     #fig2 = plt.plot(dataframe[dataframe.columns[0]],
+     #dataframe[dataframe.columns[1]])
+     fig = px.line(
+             x=dataframe[dataframe.columns[0]],
+             y=dataframe[dataframe.columns[1]],
+         )
+
+     fig.update_layout(
+        xaxis_title="2 Theta",
+        yaxis_title="Intensity",)
+     fig.update_xaxes(showgrid=False, zeroline=False)
+     fig.update_yaxes(showgrid=False, zeroline=False)
+     st.write(fig)
+
 
 
 
