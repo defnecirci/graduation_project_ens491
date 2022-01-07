@@ -7,10 +7,11 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.express as px
+from PIL import Image
 
 #import matplotlib.pyplot as plt
 import sqlite3
-from PIL import Image
+
 img=Image.open('logo.png')
 st.set_page_config(page_title='Efficient SCM Processing',page_icon=img)
 hide_menu_style = """
@@ -63,12 +64,10 @@ if uploaded_file is not None:
      fig.update_yaxes(showgrid=False, zeroline=False)
      st.write(fig)
 
-
-
 option = st.multiselect(
     'Which atoms would you like to see in the EDX image?',
     ['Si', 'Al', 'S','Mg', 'Ch', 'Ca','K', 'Na',])
-
+##play with printing
 if 'Si'and 'Al' and 'S'and'Mg'and'Ch'and'Ca'and 'K' and 'Na' in option:
     st.image('./EDX/sample37 29.jpg',width=400)
 elif 'Si' and 'Al' in option:
