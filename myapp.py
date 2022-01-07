@@ -4,7 +4,6 @@ Here's our first attempt at using data to create a table:
 """
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 import plotly.express as px
@@ -23,7 +22,7 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.title("Machine Learning for more efficient SCM processing")
 st.sidebar.subheader("Upload File")
-uploaded_file= st.sidebar.file_uploader(label="Upload your CSV or Excel file.",type=['csv','xlsx'])
+uploaded_file= st.sidebar.file_uploader(label="Upload your CSV or Excel file.",type=['xlsx','xy'])
 conn = sqlite3.connect("data.db", check_same_thread = False)
 cursor = conn.cursor()
 
@@ -42,7 +41,7 @@ conn.close()
 if uploaded_file is not None:
      # Can be used wherever a "file-like" object is accepted:
      try:
-         dataframe = pd.read_csv(uploaded_file)
+         dataframe = pd.read_csv(uploaded_file,delim_whitespace = True)
      except Exception as e:
          print(e)
          dataframe = pd.read_excel(uploaded_file)
